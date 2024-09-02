@@ -1,0 +1,28 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-text {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 18px;
+  outline: none;
+}
+
+button {
+  background-color: beige;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 10px;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: rgb(236, 226, 248);
+}
