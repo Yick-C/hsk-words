@@ -16,4 +16,4 @@ Database: postgreSQL db hosted on neon.tech
 - Tabs: Words are grouped in their HSK level and you can choose which one is best for you
 
 
-![Picture of project]()
+![Picture of project](https://github.com/Yick-C/hsk-words/blob/master/public/hsk-words.png)
