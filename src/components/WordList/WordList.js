@@ -6,7 +6,7 @@ const WordList = ({ words }) => {
   return (
     <div className="cards">
       {words.map((word) => (
-        <Card chinese={word.chinese} english={word.english} />
+        <Card chinese={word.chinese} pinyin={word.pinyin} english={word.english} />
       ))}
     </div>
   );
