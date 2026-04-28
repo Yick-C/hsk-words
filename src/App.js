@@ -25,7 +25,7 @@ function App() {
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/word?hsk=${currentLevel}`);
       setWords(response.data);
       console.log(words);
-      
+
     } catch (error) {
       console.error("Error fetching words:", error);
     }
@@ -36,7 +36,7 @@ function App() {
       const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/word?english=${searchQuery}`);
       setWords(response.data);
       console.log(words);
-      
+
     } catch (error) {
       console.error("Error fetching words:", error);
     }
@@ -45,9 +45,9 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1>Chinese HSK Words</h1>
+        <h1>HSK {currentLevel} Vocabulary</h1>
         <Tabs levels={levels} currentLevel={currentLevel} onSelectLevel={setCurrentLevel} />
-        <Search onSearch={setSearchQuery}/>
+        <Search onSearch={setSearchQuery} />
       </div>
       <WordList words={words} />
     </div>
