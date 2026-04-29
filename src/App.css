@@ -39,7 +39,38 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.gate {
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.gate-char {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 56px;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.gate p {
+  font-size: 16px;
+  color: white;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.gate-btn {
+  border: none;
+  padding: 10px 28px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.gate-btn:hover {
+  background: blueviolet;
 }
