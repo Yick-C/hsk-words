@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Tabs from '../components/Tabs/Tabs'
 import Search from '../components/Search/Search'
 import WordList from '../components/WordList/WordList';
-
+import { useWordList } from '../hooks/useWordList';
 
 function WordListPage() {
     const levels = [1, 2, 3, 4, 5]
@@ -12,24 +12,11 @@ function WordListPage() {
     const [searchQuery, setSearchQuery] = useState('');
     const [words, setWords] = useState([]);
 
-    useEffect(() => {
-        fetchWords();
-    }, [currentLevel]);
+    const { loading, error } = useWordList(currentLevel, words,);
 
     useEffect(() => {
         filterWords();
     }, [searchQuery]);
-
-    const fetchWords = async () => {
-        try {
-            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/v1/word?hsk=${currentLevel}`);
-            setWords(response.data);
-            console.log(words);
-
-        } catch (error) {
-            console.error("Error fetching words:", error);
-        }
-    };
 
     const filterWords = async () => {
         try {
