@@ -1,13 +1,25 @@
 import { useState } from 'react'
 
-export default function AuthModal() {
+export default function AuthModal({ onClose }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [isLogin, setIsLogin] = useState(true);
 
     async function handleSubmit() {
-        return
+        if (!email || !password) {
+            return;
+        }
+        setLoading(true);
+        try {
+            console.log("Signing in/ Signing up");
+            onClose();
+
+        } catch (error) {
+            console.log("Error: ", error.message);
+        } finally {
+            setLoading(false);
+        }
     }
 
     return (

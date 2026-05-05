@@ -23,7 +23,7 @@ function App() {
       {page === 'saved' && <SavedWordsPage />}
       {page === 'flashcards' && <FlashcardsPage />}
 
-      {authOpen && <AuthModal />}
+      {authOpen && <AuthModal onClose={closeAuth} />}
     </div>
   );
 }
