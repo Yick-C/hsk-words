@@ -24,38 +24,44 @@ export default function AuthModal({ onClose }) {
 
     return (
         <div>
-            <div className="field">
-                <label>Email</label>
-                <input
-                    type="email"
-                    placeholder="name@example.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+            <div className="modal">
+                <button className='modal-close' onClick={onClose}>X</button>
+                <h2>{isLogin ? "Welcome back" : "Create account"}</h2>
+                <p>{isLogin ? "Sign in to save words and track your progress" : "Begin your journey with Chinese"}</p>
+                <div className="field">
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        placeholder="name@example.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
 
-                />
+                    />
+                </div>
+                <div className="field">
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        placeholder="********"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+
+                    />
+                </div>
+
+                <button className="btn-primary" onClick={handleSubmit} disabled={loading}>
+                    {loading ? "Please wait..." : isLogin ? "Sign in" : "Create account"}
+                </button>
+
+                <div className="auth-toggle">
+                    {isLogin ? "Don't have an account? " : "Already have an account?"}
+                    <span onClick={() => setIsLogin((value) => !value)}>
+                        {isLogin ? "Create account" : "Sign in"}
+                    </span>
+                </div>
             </div>
-            <div className="field">
-                <label>Password</label>
-                <input
-                    type="password"
-                    placeholder="********"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
 
-                />
-            </div>
-
-            <button className="btn-primary" onClick={handleSubmit} disabled={loading}>
-                {loading ? "Please wait..." : isLogin ? "Sign in" : "Create account"}
-            </button>
-
-            <div className="auth-toggle">
-                {isLogin ? "Don't have an account? " : "Already have an account?"}
-                <span onClick={() => setIsLogin((value) => !value)}>
-                    {isLogin ? "Create account" : "Sign in"}
-                </span>
-            </div>
         </div>
     )
 }
